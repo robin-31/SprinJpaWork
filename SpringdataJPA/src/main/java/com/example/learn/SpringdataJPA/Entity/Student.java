@@ -14,11 +14,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Entity
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "student_prod",
 uniqueConstraints = @UniqueConstraint(
 		columnNames = "mail_ID",
