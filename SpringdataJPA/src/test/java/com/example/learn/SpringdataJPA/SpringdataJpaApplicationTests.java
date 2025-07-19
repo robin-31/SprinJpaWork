@@ -59,7 +59,89 @@ public void showStudent() {
 	System.out.println("fetched record from DB :" + students);
 	
 }
+
+@Test
+public void printStudentByName() {
+	List<Student> students = studentRepository.findByStudentName("Robin manna");
+	System.out.println("Student name by passing input as robin manna :" + students);
+	for(Student student : students) {
+		System.out.println("-------------loop started from here------------------");
+		System.out.println("Student name is :" + student.getStudentName());
+		System.out.println("Student mail id is :" + student.getMail_ID());
+		System.out.println("Student living in:" + student.getCity());
+		System.out.println("course opt for :" + student.getCollegeinfo().getSchool_name());
+		System.out.println("Batch yeas :" + student.getCollegeinfo().getPassing_year());
+		System.out.println("Percentage secured :" + student.getCollegeinfo().getPercentage());
+		System.out.println("-------------------------loop end here---------------------");
+	}
 	
+}
+	
+@Test
+public void printstudentNameByMatching() {
+	List<Student> students = studentRepository.findByStudentNameContaining("N");
+	System.out.println("Student name contain character as N:" + students);
+	for(Student student : students) {
+		System.out.println("-------------loop started from here------------------");
+		System.out.println("Student name is :" + student.getStudentName());
+		System.out.println("Student mail id is :" + student.getMail_ID());
+		System.out.println("Student living in:" + student.getCity());
+		System.out.println("course opt for :" + student.getCollegeinfo().getSchool_name());
+		System.out.println("Batch yeas :" + student.getCollegeinfo().getPassing_year());
+		System.out.println("Percentage secured :" + student.getCollegeinfo().getPercentage());
+		System.out.println("-------------------------loop end here---------------------");
+	}
+}
+
+@Test
+public void findByCity() {
+	List<Student> students = studentRepository.findbyCity("Delhi");
+	System.out.println("Student name by passing input as robin manna :" + students);
+	for(Student student : students) {
+		System.out.println("-------------loop started from here------------------");
+		System.out.println("Student name is :" + student.getStudentName());
+		System.out.println("Student mail id is :" + student.getMail_ID());
+		System.out.println("Student living in:" + student.getCity());
+		System.out.println("course opt for :" + student.getCollegeinfo().getSchool_name());
+		System.out.println("Batch yeas :" + student.getCollegeinfo().getPassing_year());
+		System.out.println("Percentage secured :" + student.getCollegeinfo().getPercentage());
+		System.out.println("-------------------------loop end here---------------------");
+	}
+	
+}
+
+@Test
+public void findBySameCity() {
+	List<Student> students =studentRepository.findbyCityUsingNative("Delhi");
+	System.out.println("Student detais who's living in same city :" + students);
+	for(Student student : students) {
+		System.out.println("-------------loop started from here------------------");
+		System.out.println("Student name is :" + student.getStudentName());
+		System.out.println("Student mail id is :" + student.getMail_ID());
+		System.out.println("Student living in:" + student.getCity());
+		System.out.println("course opt for :" + student.getCollegeinfo().getSchool_name());
+		System.out.println("Batch yeas :" + student.getCollegeinfo().getPassing_year());
+		System.out.println("Percentage secured :" + student.getCollegeinfo().getPercentage());
+		System.out.println("-------------------------loop end here---------------------");
+	}
+}
+
+@Test
+public void findStudentByCityAndCourse() {
+	List<Student> students = studentRepository.findByCourseAndCity("Delhi", "MCA");
+	System.out.println("Total numbers of recored we got from DB :" + students.size());
+	for(Student student : students) {
+		System.out.println("-------------loop started from here------------------");
+		System.out.println("Student name is :" + student.getStudentName());
+		System.out.println("Student mail id is :" + student.getMail_ID());
+		System.out.println("Student living in:" + student.getCity());
+		System.out.println("course opt for :" + student.getCollegeinfo().getSchool_name());
+		System.out.println("Batch yeas :" + student.getCollegeinfo().getPassing_year());
+		System.out.println("Percentage secured :" + student.getCollegeinfo().getPercentage());
+		System.out.println("-------------------------loop end here---------------------");
+	}
+	
+}
 	
 	
 
